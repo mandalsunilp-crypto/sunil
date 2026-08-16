@@ -1,0 +1,355 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 4.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 4.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 240 4% 16%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 4% 16%;
+    --muted-foreground: 240 5% 65%;
+    --accent: 240 4% 16%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 4% 16%;
+    --input: 240 4% 16%;
+    --ring: 217 91% 60%;
+    --radius: 0.75rem;
+
+    --vh-accent: #9333ea;
+    --vh-accent-glow: rgba(147, 51, 234, 0.35);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    font-size: 15px;
+  }
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-purple-600 selection:text-white;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  table th, table td {
+    font-size: 0.875rem; /* 14px comfortable medium font for table headers and cells */
+  }
+
+  input, select, textarea, button {
+    font-size: 0.875rem; /* 14px comfortable font for controls */
+  }
+}
+
+/* ==========================================
+   ⬛ 1. PURE BLACK THEME (OLED Dark Mode)
+   ========================================== */
+html.black,
+html.dark {
+  color-scheme: dark;
+}
+
+html.black body,
+html.dark body {
+  background-color: #040405 !important;
+  color: #f8fafc !important;
+}
+
+html.black header,
+html.black nav,
+html.black aside,
+html.dark header,
+html.dark nav,
+html.dark aside {
+  background-color: #000000 !important;
+  border-color: #18181b !important;
+}
+
+/* ==========================================
+   ⬜ 2. PURE WHITE THEME (Clean Day Mode)
+   ========================================== */
+html.white,
+html.light {
+  color-scheme: light;
+}
+
+html.white body,
+html.light body,
+html.white main,
+html.light main {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+html.white header,
+html.white nav,
+html.white aside,
+html.light header,
+html.light nav,
+html.light aside {
+  background-color: #ffffff !important;
+  border-color: #e2e8f0 !important;
+  color: #0f172a !important;
+}
+
+/* White Theme Cards, Panels & Backgrounds */
+html.white .bg-\[\#09090b\],
+html.white .bg-\[\#040405\],
+html.white .bg-neutral-950,
+html.white .bg-neutral-900,
+html.white .bg-neutral-900\/60,
+html.white .bg-neutral-900\/80,
+html.white .bg-neutral-950\/80,
+html.white .bg-neutral-950\/70,
+html.white .bg-neutral-950\/60,
+html.white .glass-card,
+html.white .glass-panel,
+html.light .bg-\[\#09090b\],
+html.light .bg-\[\#040405\],
+html.light .bg-neutral-950,
+html.light .bg-neutral-900,
+html.light .glass-card,
+html.light .glass-panel {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* White Theme Form Controls */
+html.white input,
+html.white select,
+html.white textarea,
+html.light input,
+html.light select,
+html.light textarea {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.white thead,
+html.light thead {
+  background-color: #f1f5f9 !important;
+  color: #334155 !important;
+  border-color: #e2e8f0 !important;
+}
+
+/* White Theme Typography */
+html.white .text-white,
+html.white .text-neutral-100,
+html.white .text-neutral-200,
+html.light .text-white,
+html.light .text-neutral-100,
+html.light .text-neutral-200 {
+  color: #0f172a !important;
+}
+
+html.white .text-neutral-300,
+html.white .text-neutral-400,
+html.light .text-neutral-300,
+html.light .text-neutral-400 {
+  color: #475569 !important;
+}
+
+html.white .text-neutral-500,
+html.light .text-neutral-500 {
+  color: #64748b !important;
+}
+
+html.white .border-neutral-800,
+html.white .border-neutral-800\/80,
+html.white .border-neutral-800\/60,
+html.white .border-neutral-700,
+html.light .border-neutral-800,
+html.light .border-neutral-800\/80,
+html.light .border-neutral-800\/60,
+html.light .border-neutral-700 {
+  border-color: #e2e8f0 !important;
+}
+
+/* ==========================================
+   ☯️ 3. HYBRID MIX THEME (Dark Nav + White Cards)
+   ========================================== */
+html.mix body {
+  background-color: #0f172a !important;
+  color: #f8fafc !important;
+}
+
+/* Mix Theme: Dark Navigation Header & Sidebar */
+html.mix header,
+html.mix nav,
+html.mix aside {
+  background-color: #020617 !important;
+  border-color: #1e293b !important;
+  color: #f8fafc !important;
+}
+
+html.mix header .text-white,
+html.mix nav .text-white,
+html.mix aside .text-white {
+  color: #ffffff !important;
+}
+
+html.mix header .text-neutral-300,
+html.mix header .text-neutral-400,
+html.mix nav .text-neutral-300,
+html.mix nav .text-neutral-400,
+html.mix aside .text-neutral-300,
+html.mix aside .text-neutral-400 {
+  color: #94a3b8 !important;
+}
+
+/* Mix Theme: Pure White Crisp Main Workspace & Cards */
+html.mix main {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+  border-radius: 1.5rem !important;
+  padding: 1.5rem !important;
+  margin-top: 1rem !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
+}
+
+html.mix main .bg-neutral-900,
+html.mix main .bg-neutral-950,
+html.mix main .bg-\[\#09090b\],
+html.mix main .bg-\[\#040405\],
+html.mix main .glass-card,
+html.mix main .glass-panel {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.mix main input,
+html.mix main select,
+html.mix main textarea {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+html.mix main thead {
+  background-color: #f1f5f9 !important;
+  color: #334155 !important;
+}
+
+html.mix main .text-white,
+html.mix main .text-neutral-100,
+html.mix main .text-neutral-200 {
+  color: #0f172a !important;
+}
+
+html.mix main .text-neutral-300,
+html.mix main .text-neutral-400 {
+  color: #475569 !important;
+}
+
+html.mix main .border-neutral-800,
+html.mix main .border-neutral-800\/80,
+html.mix main .border-neutral-700 {
+  border-color: #e2e8f0 !important;
+}
+
+/* Glassmorphism & Modern Depth Tokens */
+.glass-panel {
+  background: rgba(18, 18, 23, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 255, 255, 0.01) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px -10px rgba(0, 0, 0, 0.6);
+}
+
+/* Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.04);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 6s ease-in-out infinite;
+}
+
+.shimmer-effect {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-effect::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translateX(-100%);
+  background-image: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0,
+    rgba(255, 255, 255, 0.06) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  animation: shimmer 2.5s infinite;
+}
+
+.hover-lift {
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+}
