@@ -565,9 +565,10 @@ export class MemoryStore {
     return globalStore.__vh_inventory_batches
   }
 
-  // Orders & Invoices
-  static getOrders(): FallbackOrder[] {
-    return globalStore.__vh_orders || []
+  static getOrders(customerId?: string): FallbackOrder[] {
+    const orders = globalStore.__vh_orders || []
+    if (customerId) return orders.filter((o) => o.customer_id === customerId)
+    return orders
   }
 
   static addOrder(data: Omit<FallbackOrder, 'id' | 'created_at' | 'updated_at'> & { id?: string }): FallbackOrder {
