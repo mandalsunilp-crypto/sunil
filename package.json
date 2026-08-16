@@ -1,0 +1,35 @@
+{
+  "name": "verified-hub",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Verified Hub — Premium AI Tools • Verified Access • Trusted Support",
+  "scripts": {
+    "dev": "node --max-http-header-size=104857600 ./node_modules/next/dist/bin/next dev",
+    "build": "next build",
+    "start": "node --max-http-header-size=104857600 ./node_modules/next/dist/bin/next start",
+    "lint": "next lint",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@supabase/ssr": "^0.5.1",
+    "@supabase/supabase-js": "^2.45.4",
+    "@types/pg": "^8.21.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.447.0",
+    "next": "^16.3.1",
+    "pg": "^8.23.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "tailwind-merge": "^2.5.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/node": "^20.16.10",
+    "@types/react": "^18.3.10",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.2"
+  }
+}
